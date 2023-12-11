@@ -23,7 +23,15 @@ class User extends Authenticatable
         'username',
         'password',
         'role',
+        'alamat',
     ];
+
+    public function order()
+    {
+        return $this->belongsTo(pengajuan::class);
+    }
+
+    
 
     /**
      * The attributes that should be hidden for arrays.
@@ -42,4 +50,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    
 }

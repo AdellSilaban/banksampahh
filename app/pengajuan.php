@@ -12,10 +12,13 @@ class pengajuan extends Model
     protected $fillable = [
         'id',
         'tgl_pengajuan',
+        'nama_lengkap',
+        'nama_petugas',
         'kapasitas_or',
         'kapasitas_an',
         'status',
     ];
+
 
     public function user()
     {

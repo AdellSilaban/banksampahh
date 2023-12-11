@@ -18,13 +18,14 @@ class CreatePengajuanTable extends Migration
             $table->unsignedBigInteger('id');
             $table->foreign('id')->references('id')->on('users');
             $table->date('tgl_pengajuan');
+            $table->string('nama_lengkap');
+	        $table->string('nama_petugas');
             $table->integer('kapasitas_or');
             $table->integer('kapasitas_an');
             $table->string('status');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

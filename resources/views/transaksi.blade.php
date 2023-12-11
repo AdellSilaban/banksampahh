@@ -18,10 +18,9 @@
 <table class="table table-striped">
       <thead>
         <tr>
-          @foreach ($data as $data2=> $coba)
-          <th>No</th>
+          @foreach ()
+          {{-- <th>No</th> --}}
           <th>Nama Pengguna</th>
-          <th>Alamat</th>
           <th>Total Berat Sampah (Kg)</th>
           <th>Total Tagihan</th>
           <th>Upload transaksi</th>
@@ -31,9 +30,8 @@
       </thead>
       <tbody>
         <tr>
-          <th>{{$coba->id_paket}}</th>
+          {{-- <th>{{$coba->id}}</th> --}}
           <td>{{$coba->nama_lengkap}}</td>
-          <td>{{$coba->longitude}}</td>
           <td>{{$coba->kapasitas}}</td>
           <td>{{$coba->harga}}</td>
           <td>

@@ -21,16 +21,18 @@
 
 @section('grafik')
 
-<center><h5 class="bold">Data Petugas</h5></center>
+<center><h5 class="bold">Data Pengguna</h5></center>
 <br>
 <table class="table table-striped">
   <thead>
     
     <tr>
       {{-- <th>ID</th> --}}
-      <th>Nama Petugas</th>
+      <th>Nama Pengguna</th>
       <th>Nomor Telepon</th>
       <th>Email</th>
+      <th>Longitude</th>
+      <th>Latitude</th>
       
     </tr>
 
@@ -42,6 +44,8 @@
       <td>{{$tampil->nama_lengkap}}</td>
       <td>{{$tampil->no_tlp}}</td>
       <td>{{$tampil->email}}</td>
+      <td>{{$tampil->longitude}}</td>
+      <td>{{$tampil->latitude}}</td>
     </tr>
   @endforeach
   </tbody>

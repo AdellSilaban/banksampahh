@@ -1,37 +1,32 @@
 @extends('layouts/main')
 @section('header')
 <ul>
-  <li><a {{$key=='home_PG'?'active':''}} href="/home_PG">Home</a></li>
-  <li><a {{$key=='profile_PG'?'active':''}} href="/profile_PG">Profile</a></li>
-  <li><a {{$key=='paket_pelanggan'?'active':''}} href="/paket_pelanggan">Jemput Sampah</a></li>
-  <li><a {{$key=='transaksi'?'active':''}} href="/transaksi">Transaksi</a></li>
-  <li><a {{$key=='logout'?'active':''}} href="/logout">Logout</a></li>
+<li><a {{$key=='home_PG'?'active':''}} href="/home_PS">Home</a></li>
+<li><a {{$key=='profile_PS'?'active':''}} href="/profile_PS">Profile</a></li>
+<li class="dropdown"><a href="#"><span>Data Pengajuan</span> <i class="bi bi-chevron-down"></i></a>
+    <ul>
+      <li><a href="/validasi_data">Data Pengajuan Pengguna</a></li>
+      <li><a href="/form_pengajuanbuang">Data Pengajuan Pembuangan ke Bank Sampah</a></li>
+    </ul>
+<li><a {{$key=='logout'?'active':''}} href="/logout">Logout</a></li>
 </ul>
 
 @endsection
-<br>
-<br>
-<br>
 
+<br>
+<br>
+<br>
 @section('grafik')
-
-
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/bootstrap.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
 
 
-
-<form method="post" action="/saveLocation">
+<form method="post" action="/saveLocationPS">
     @csrf
-   <center><h5 class="bold">Profile Pengguna</h5></center> 
+   <center><h5 class="bold">Profile Petugas</h5></center> 
    <br>
    <input type="number" name="id" hidden>
-
                     <div class="form-group row">
                         <label for="nama_lengkap" class="col-sm-1 col-form-label">Nama </label>
                         <div class="col-sm-5">
@@ -62,14 +57,15 @@
         </div>
  
 
-      <br>
+      <br>    
       <div class="form-group row">
-          <label for="alamat" class="col-sm-1  col-form-label">alamat</label>
-          <div class="col-sm-10 ">
-            <input type="text" name="alamat" class="form-control" placeholder="alamat">
-          </div>
+            <label for="alamat" class="col-sm-1 col-form-label">Alamat </label>
+            <div class="col-sm-10">
+                <input type="text" name="alamat" class="form-control" placeholder="alamat" id="alamat">
+              </div>
+        </div>
 
-          <br>
+
           <br>
           <div id="map" style="height: 300px; width: 100%;">
           </div>
@@ -131,4 +127,4 @@
     </script>
 @endif
 
-  @endsection
+@endsection

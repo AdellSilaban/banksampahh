@@ -1,37 +1,32 @@
 @extends('layouts/main')
 @section('header')
 <ul>
-  <li><a {{$key=='home_PG'?'active':''}} href="/home_PG">Home</a></li>
-  <li><a {{$key=='profile_PG'?'active':''}} href="/profile_PG">Profile</a></li>
-  <li><a {{$key=='paket_pelanggan'?'active':''}} href="/paket_pelanggan">Jemput Sampah</a></li>
-  <li><a {{$key=='transaksi'?'active':''}} href="/transaksi">Transaksi</a></li>
-  <li><a {{$key=='logout'?'active':''}} href="/logout">Logout</a></li>
+    <li><a {{$key=='home_BS'?'active':''}} href="/home_BS">Home</a></li>
+    <li><a {{$key=='profile_BS'?'active':''}} href="/profile_BS">Profile</a></li>
+    <li><a {{$key=='ajukan_pembuangan'?'active':''}} href="/ajukan_pembuangan">Validasi Data Pembuangan</a></li>
+    <li class="dropdown"><a href="#"><span>Data</span> <i class="bi bi-chevron-down"></i></a>
+        <ul>
+          <li><a href="/data_petugas">Data Petugas</a></li>
+          <li><a href="/data_pengguna">Data Pengguna</a></li>
+        </ul>
+      <li><a {{$key=='logout'?'active':''}} href="/logout">Logout</a></li>
 </ul>
-
 @endsection
-<br>
-<br>
-<br>
 
+<br>
+<br>
+<br>
 @section('grafik')
-
-
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/bootstrap.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
 
 
-
-<form method="post" action="/saveLocation">
+<form method="post" action="/saveLocationBS">
     @csrf
-   <center><h5 class="bold">Profile Pengguna</h5></center> 
+   <center><h5 class="bold">Profile Bank Sampah</h5></center> 
    <br>
    <input type="number" name="id" hidden>
-
                     <div class="form-group row">
                         <label for="nama_lengkap" class="col-sm-1 col-form-label">Nama </label>
                         <div class="col-sm-5">
@@ -64,10 +59,17 @@
 
       <br>
       <div class="form-group row">
-          <label for="alamat" class="col-sm-1  col-form-label">alamat</label>
-          <div class="col-sm-10 ">
-            <input type="text" name="alamat" class="form-control" placeholder="alamat">
+        <label for="nama_instansi" class="col-sm-1 col-form-label">Nama Instansi</label>
+        <div class="col-sm-5 ">
+            <input type="text" name="nama_instansi" class="form-control" placeholder="Nama Instansi" id="nama_instansi" value="{{Auth::user() ->nama_instansi ?? '' }}" required>
           </div>
+              
+            <label for="alamat" class="col-sm-1 col-form-label">Alamat </label>
+            <div class="col-sm-4 ">
+                <input type="text" name="alamat" class="form-control" placeholder="alamat" id="alamat">
+              </div>
+        </div>
+
 
           <br>
           <br>
@@ -131,4 +133,4 @@
     </script>
 @endif
 
-  @endsection
+@endsection

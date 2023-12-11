@@ -21,7 +21,8 @@ class CreateUsersTable extends Migration
 	        $table->string('username', 40);
             $table->string('password', 80);
             $table->enum('role',['pengguna', 'pengambil', 'banksampah'])->default('pengguna');
-            $table->rememberToken();
+            $table->string('alamat', 40)->nullable();
+	        $table->string('nama_instansi',40)->nullable();
 	        $table->string('latitude', 40)->nullable();
             $table->string('longitude', 40)->nullable();
             $table->timestamps();
